@@ -38,7 +38,7 @@ class ConsolidadorDataFrame:
 
 
     
-    def percorre_diretorio_CSV(self, diretorio, texto_filtro_arquivo, caminho_destino_csv, colunas_interesse, tamanho_bloco=12, codificacao='iso-8859-1', separador=';'):
+    def percorre_diretorio_CSV(self, diretorio, texto_filtro_arquivo, caminho_destino_csv, colunas_interesse, tamanho_bloco=12, codificacao='iso-8859-1', separador=';', ano_inicio=None):
     
         #Declarando variáveis globais para o escopo da função percorre_diretorio_CSV
         #elas serão usadas na função salvar_e_reiniciar_parte
@@ -86,6 +86,7 @@ class ConsolidadorDataFrame:
         
         # Filtra apenas os subdiretorios, excluindo arquivos
         subdiretorios = [arquivo for arquivo in arquivos if os.path.isdir(os.path.join(diretorio, arquivo))]
+    
         
         # Ordena os subdiretórios alfabeticamente
         subdiretorios_ordenados = sorted(subdiretorios)
@@ -93,35 +94,39 @@ class ConsolidadorDataFrame:
         
         # Itera a lista de subdiretorios
         for subdiretorio in subdiretorios_ordenados:
-    
-            contador_arquivos_processados += 1
+
+            ano_subdiretorio = int(subdiretorio[0:4])
             
-            caminho_completo = os.path.join(diretorio, subdiretorio)
+            if (ano_inicio == None) or (ano_subdiretorio >= ano_inicio):
             
-            arquivos_subdiretorio = os.listdir(caminho_completo) 
-    
-            lista_arquivo = [arquivo for arquivo in arquivos_subdiretorio if arquivo.lower().find(texto_filtro_arquivo) != -1]
-    
-            if len(lista_arquivo) == 1:
+                contador_arquivos_processados += 1
                 
-                caminho_arquivo_csv = lista_arquivo[0]
-    
-                caminho_completo_arquivo_csv = os.path.join(caminho_completo, caminho_arquivo_csv)                        
-    
-                df_total = self.gerar_totais (caminho_completo_arquivo_csv, colunas_interesse, codificacao, separador)
-    
-                # Concatena o DataFrame atual com o DataFrame consolidado
-                df_consolidado = pd.concat([df_consolidado, df_total], ignore_index=True)
-            
-            else:
-    
-                display (f'ATENÇÃO: Mais ou nenhum arquivo csv no subdiretório {caminho_completo}')
-    
-            
-            #Se formou uma parte com TAMANHO_BLOCO arquivos a serem salvos
-            if contador_arquivos_processados >= tamanho_bloco:
-    
-                salvar_e_reiniciar_parte()
+                caminho_completo = os.path.join(diretorio, subdiretorio)
+                
+                arquivos_subdiretorio = os.listdir(caminho_completo) 
+        
+                lista_arquivo = [arquivo for arquivo in arquivos_subdiretorio if arquivo.lower().find(texto_filtro_arquivo) != -1]
+        
+                if len(lista_arquivo) == 1:
+                    
+                    caminho_arquivo_csv = lista_arquivo[0]
+        
+                    caminho_completo_arquivo_csv = os.path.join(caminho_completo, caminho_arquivo_csv)                        
+        
+                    df_total = self.gerar_totais (caminho_completo_arquivo_csv, colunas_interesse, codificacao, separador)
+        
+                    # Concatena o DataFrame atual com o DataFrame consolidado
+                    df_consolidado = pd.concat([df_consolidado, df_total], ignore_index=True)
+                
+                else:
+        
+                    display (f'ATENÇÃO: Mais ou nenhum arquivo csv no subdiretório {caminho_completo}')
+        
+                
+                #Se formou uma parte com TAMANHO_BLOCO arquivos a serem salvos
+                if contador_arquivos_processados >= tamanho_bloco:
+        
+                    salvar_e_reiniciar_parte()
     
         
         #Se existe um resto de arquivos que ainda não foram salvos em uma parte
