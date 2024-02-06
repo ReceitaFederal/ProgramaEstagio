@@ -186,6 +186,3 @@ E para estagiários de TI? Alguma recomendação distinta?
 * Tenha responsabilidade e cuidado com o smartphone
 
 * Fontes: Prefeitura de Niterói e Prodest
-
-* 
-* 
