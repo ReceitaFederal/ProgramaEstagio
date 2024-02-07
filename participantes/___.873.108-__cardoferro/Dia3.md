@@ -1,0 +1,91 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "325f0dca-33ac-4568-a175-781f81777d06",
+   "metadata": {},
+   "source": [
+    "## 3º Dia \n",
+    "---\n",
+    "## História do Portal da Transparência \n",
+    "* O Portal da Transparencia foi lançado em novembro de 2004 pelo Ministério da Transparência.\n",
+    "* Criado com o intuito do cidadão ter acesso a informação de administração pública, como exemplo: gastos realizados pelo Governo Federal em compras ou contratação de obras e serviços, incluindo os gastos de cada órgão com diárias, material de expediente, compra de equipamentos. De modo que qualquer pessoa pudesse ter a noção mais ampla possível acerca de como é aplicado o dinheiro público.\n",
+    "* Com o decorrer dos anos, o portal da Transparência foi ganhando ainda mais informações de poder público, sendo algumas deles:\n",
+    "  - Orçamentos Anuais;\n",
+    "  - Receitas Públicas;\n",
+    "  - Despesas Públicas;\n",
+    "  - Recursos Transferidos;\n",
+    "  - Gastos por Cartões de Pagamentos;\n",
+    "  - Àreas de Atuação do Governo;\n",
+    "  Entre outras.\n",
+    "\n",
+    "'''\n",
+    "\n",
+    "## Fundamentação legal \n",
+    "* O proprio portal da transparência deixa a disposição do usuario todas as leis, decretos e portarias.\n",
+    "* Para acessar essas informações entramos no site oficial do portal da transparência > Sobre o portal > Legislação.\n",
+    "* Em 2011, foi criada a lei de Acesso à Informação, contribuindo na divulgação adequada, para o aumento a eficiência do poder público, assim diminuindo a corrupção e elevando a participação social.\n",
+    "  \n",
+    "'''\n",
+    "\n",
+    "## Informações disponíveis no site \n",
+    "* Engloba todos os setores públicos, onde são mostrados os gastos, investimentos e outras informações relacionadas.\n",
+    "* Um exemplo: As viagens a serviços, o site mostra o etinerário, sejam elas nacionais ou internacionais, tendo o nome e cargo da pessoa, valor da diária e passagem, o motivo, périodo da viagem e o status da urgência. Além das informações citadas na História, temos outras funcionalidades encontradas no Portal:\n",
+    "   - Servidores Públicos;\n",
+    "   - Programas de Governo;\n",
+    "   - Imovéis Funcinais;\n",
+    "   - Contratações;\n",
+    "   - Òrgãos do Governo.\n",
+    "  E muito mais.\n",
+    "\n",
+    "'''\n",
+    "\n",
+    "## Gráficos \n",
+    "### Tipos de gráficos\n",
+    "* Os principais gráficos no Portal da Transparência são de:\n",
+    "  - Coluna\n",
+    "  - Barra\n",
+    "  - Linha\n",
+    "  - Pizza\n",
+    "  - Treemap\n",
+    "  - Dispersão\n",
+    "    \n",
+    "* Vamos citar alguns exemplos com base nas páginas do Portal:\n",
+    "  - Na página: https://portaldatransparencia.gov.br/servidores]temos três gráficos de pizza falando sobre os servidores ativos de forma dinâmica, mas não interativa, já que, quando passamos o mouse mostra a quantidade daquela área do gráfico, mas nao vai para o segundo nível.\n",
+    "  - Enquanto o gráfico de servidores inativos, tambem de pizza é interativo,passando para um segundo nível, alterando tanto a quantidade, quanto a cor de cada área relacionada ao gráfico.\n",
+    "  - Logo abaixo temos um modelo de treemap que relaciona a quantidade de servidores em cada órgão superior, agrupando em retângulos. Tambem interativo, chegando apenas ao segundo nível.\n",
+    "  - Em seguida, sobre a oculpação de cargos,um gráfico de dispersão foi usado, mas talvez não tenha sido a melhor escolha, pois é um gráfico dinâmico, mas não interativo, já que não conseguimos ampliar na área de maior concentração dos pontos. Alternativas para este problema seria substituir por um gráfico de barras, linhas ou o treemap.\n",
+    "  - Um pouco mais abaixo, temos um gráfico de colunas falando sobre a distribuição por faixa etária da quantidade de servidores. Dinâmico, mas nao interativo.\n",
+    "  - E por fim um gráfico de linhas foi usado para mostrar a evolução histórica dos servidores.\n",
+    "  - Na maioria dos gráficos do portal, temos elementos padrões como: Ampliar, Incorporar, Tabela Referente ao Gráfico e abas separando o assunto.\n",
+    "\n",
+    "* Encontramos tambem mapas interessantes das localidades, regiões separadas por cores, anos, valores, de forma dinâmica e interativa.  \n",
+    "---\n",
+    "#### Referências\n",
+    " * https://repositorio.enap.gov.br/jspui/bitstream/1/249/1/Portal%20da%20Transpar%C3%AAncia.pdf\n",
+    " * https://fia.com.br/blog/portal-da-transparencia/"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
