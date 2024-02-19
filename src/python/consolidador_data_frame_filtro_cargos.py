@@ -29,6 +29,12 @@ class ConsolidadorDataFrame:
         
         df = pd.read_csv(caminho_arquivo_csv, encoding=codificacao, sep=separador)
 
+        linhas_uorg_lotacao_invalida = df.loc[df['UORG_LOTACAO'] == 'Inválido']
+
+        df.loc [linhas_uorg_lotacao_invalida, 'UORG_LOTACAO'] = df.loc[linhas_uorg_lotacao_invalida, 'UORG_EXERCICIO']
+
+        
+        
         df.loc[df['UORG_LOTACAO'] == 'Inválido', 'UORG_LOTACAO'] = df['UORG_EXERCICIO']
 
         # Filtra o dataframe para pegar apenas auditores e analistas da receita federal
