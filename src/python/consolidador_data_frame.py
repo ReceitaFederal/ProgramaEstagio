@@ -16,29 +16,79 @@ class ConsolidadorDataFrame:
         return        
 
     
+    def consolidar(self, diretorio_csv, funcao_filtro, dicionario_parametros_funcao_filtro, codificacao='iso-8859-1', separador=';'):
+                
+        indice_ultimo_separador = diretorio_csv.rfind("/")
+        nome_diretorio = diretorio_csv [indice_ultimo_separador+1:] 
     
-    def gerar_totais (self, caminho_arquivo_csv, colunas_interesse, codificacao='iso-8859-1', separador=';'):
+        ano = nome_diretorio[:4]
+        mes = nome_diretorio[4:6]
+        
+        
+        caminho_arquivo_cadastro = f'{diretorio_csv}/{ano}{mes}_Cadastro.csv'
+        caminho_arquivo_remuneracao = f'{diretorio_csv}/{ano}{mes}_Remuneracao.csv'
+        
+        df_cadastro = pd.read_csv(caminho_arquivo_cadastro, encoding=codificacao, sep=separador)
+        df_remuneracao = pd.read_csv(caminho_arquivo_remuneracao, encoding=codificacao, sep=separador)
 
-        display (f'Processando arquivo: {caminho_arquivo_csv}')
+        #TODO: Remover servidores duplicados
         
-        indice_ultimo_separador = caminho_arquivo_csv.rfind("/")
-        nome_arquivo = caminho_arquivo_csv [indice_ultimo_separador+1:-4] 
-    
-        ano = int(nome_arquivo[:4])
-        mes = int(nome_arquivo[4:6])        
         
-        df = pd.read_csv(caminho_arquivo_csv, encoding=codificacao, sep=separador)
-    
-        df_contagem_combinacoes = df.groupby(colunas_interesse).size().reset_index(name='Contagem')    
-    
-        df_contagem_combinacoes['ano'] = ano
-        df_contagem_combinacoes['mes'] = mes
+        df = pd.merge(df_cadastro, df_remuneracao, on=["Id_SERVIDOR_PORTAL"], how="left")
+            
         
+        df_filtrado = funcao_filtro(df, dicionario_parametros_funcao_filtro)
+    
+        df_filtrado['ano'] = int(ano)
+        df_filtrado['mes'] = int(mes)
+        df_filtrado['ano_mes'] = df_filtrado['ano'].astype(str) + '-' + df_filtrado['mes'].astype(str).str.zfill(2)
+        
+        return df_filtrado
+    
+    
+    def gerar_totais_colunas_interesse (self, df, dicionario_parametros_funcao_filtro):
+
+        display (f'{type(self)} --- {type(df)} --- {type (dicionario_parametros_funcao_filtro)}')
+        
+        df_contagem_combinacoes = df.groupby(dicionario_parametros_funcao_filtro['colunas_interesse']).size().reset_index(name='Contagem')    
+
         return df_contagem_combinacoes
 
 
+
+    def filtrar_dataframe_cargos_analista_auditor (self, df, dicionario_parametros_funcao_filtro):
+       
+        linhas_uorg_lotacao_invalida = df.loc[df['UORG_LOTACAO'] == 'Inválido']
+
+        df.loc [linhas_uorg_lotacao_invalida, 'UORG_LOTACAO'] = df.loc[linhas_uorg_lotacao_invalida, 'UORG_EXERCICIO']
+        
+        df.loc[df['UORG_LOTACAO'] == 'Inválido', 'UORG_LOTACAO'] = df['UORG_EXERCICIO']
+
+        # Filtra o dataframe para pegar apenas auditores e analistas da receita federal
+        filtro_analista = df['DESCRICAO_CARGO'].str.contains('ANALISTA TRIBUTARIO REC FEDERAL BRASIL', case=False, na=False)
+        filtro_auditor =  df['DESCRICAO_CARGO'].str.contains('RECEITA FEDERAL BRASIL', case=False, na=False)
+
+        df_filtrado_auditor_analista = df[filtro_analista | filtro_auditor]                    
+
+        # Extrai uma lista com todos os UORG únicos que tem auditor ou analista trabalhando
+        lista_uorg_lotacao = df_filtrado_auditor_analista.value_counts("UORG_LOTACAO").index
+
+        # Remove do dataframe original apenas quem for dar uorg que tem auditor e analista trabalhando
+        df_filtrado = df[df['UORG_LOTACAO'].isin(lista_uorg_lotacao)]
+        
+        return df_filtrado
+
+
+
+    def filtrar_dataframe_valor_procurado (self, df, dicionario_parametros_funcao_filtro):
+
+        df_filtrado = df[df[dicionario_parametros_funcao_filtro['nome_coluna'].str.contains(dicionario_parametros_funcao_filtro['valor_procurado'], case=False, na=False)]]
+        
+        return df_filtrado
     
-    def percorre_diretorio_CSV(self, diretorio, texto_filtro_arquivo, caminho_destino_csv, colunas_interesse, tamanho_bloco=12, codificacao='iso-8859-1', separador=';', ano_inicio=None):
+
+    
+    def percorre_diretorio_CSV(self, diretorio, texto_filtro_arquivo, caminho_destino_csv, funcao_filtro, dicionario_parametros_funcao_filtro, tamanho_bloco=12, codificacao='iso-8859-1', separador=';', ano_inicio=None):
     
         #Declarando variáveis globais para o escopo da função percorre_diretorio_CSV
         #elas serão usadas na função salvar_e_reiniciar_parte
@@ -102,26 +152,11 @@ class ConsolidadorDataFrame:
                 contador_arquivos_processados += 1
                 
                 caminho_completo = os.path.join(diretorio, subdiretorio)
-                
-                arquivos_subdiretorio = os.listdir(caminho_completo) 
-        
-                lista_arquivo = [arquivo for arquivo in arquivos_subdiretorio if arquivo.lower().find(texto_filtro_arquivo) != -1]
-        
-                if len(lista_arquivo) == 1:
-                    
-                    caminho_arquivo_csv = lista_arquivo[0]
-        
-                    caminho_completo_arquivo_csv = os.path.join(caminho_completo, caminho_arquivo_csv)                        
-        
-                    df_total = self.gerar_totais (caminho_completo_arquivo_csv, colunas_interesse, codificacao, separador)
-        
-                    # Concatena o DataFrame atual com o DataFrame consolidado
-                    df_consolidado = pd.concat([df_consolidado, df_total], ignore_index=True)
-                
-                else:
-        
-                    display (f'ATENÇÃO: Mais ou nenhum arquivo csv no subdiretório {caminho_completo}')
-        
+                        
+                df_total = self.consolidar(caminho_completo, funcao_filtro, dicionario_parametros_funcao_filtro, codificacao='iso-8859-1', separador=';')
+                                                                                                                            
+                # Concatena o DataFrame atual com o DataFrame consolidado
+                df_consolidado = pd.concat([df_consolidado, df_total], ignore_index=True)                    
                 
                 #Se formou uma parte com TAMANHO_BLOCO arquivos a serem salvos
                 if contador_arquivos_processados >= tamanho_bloco:
