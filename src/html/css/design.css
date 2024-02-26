@@ -419,18 +419,6 @@
 
 /*# sourceMappingURL=header.css.map*/
 
-
-.banner {
-  text-align: center;
-  justify-content: center;
-  position: relative;
-  background-size: cover;
-  justify-content: left;
-  max-width: 100%;
-  width: 100%;
-  margin-top: -25px;
-}
-
 .br-carousel {
   --carousel-button-margin: var(--spacing-scale-default);
   --carousel-buton-icon-size: var(--–icon-size-base);
@@ -821,4 +809,49 @@
 .back-to-top a span {
   font-size: 16px;
   width: auto;
+}
+
+.video1 {
+  width: 580px;
+  height: 315px;
+}
+
+.banner {
+  position: relative;
+  background-size: cover;
+  max-width: 100%;
+  margin-top: -55px;
+}
+
+.title-section {
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+.paragrafo {
+  font-weight: 400;
+  font-size: 15px;
+
+}
+
+.img-center {
+  display: block;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.br-divider .vertical {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  position: relative;
 }
