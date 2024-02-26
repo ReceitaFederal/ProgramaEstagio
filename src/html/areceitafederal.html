@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Padrão Digital de Governo</title>
+
+    <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
+    <script src="./componentes/rodape/rodape.js" type="module"></script>
+
+
+    <!-- Font Rawline-->
+    <link
+      rel="stylesheet"
+      href="./bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css"
+    />
+    <!-- Font Raleway-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"
+    />
+    <!-- Design System GOV.BR CSS-->
+    <link rel="stylesheet" href="./bibliotecas/govbr-ds/core-lite.css" />
+    <!-- Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <!--- Design próprio CSS -->
+    <link rel="stylesheet" href="./css/design.css" />
+ 
+  </head>
+
+  <body>
+    <div class="template-base">
+
+      
+      <br-cabecalho></br-cabecalho>
+
+
+        <div class="d-flex">
+        <div class="banner">
+        <!-- Conteúdo do banner vai aqui -->
+        <img src="./img/rfb-banner-rotativo-site-8.png" alt="Descrição da Imagem 1">
+        </div>
+        </div>
+
+      <!-- Sobre a Receita -->
+
+      <div class="container-lg">
+        <p class="title-section mt-5">
+          Conheça a RFB
+        </p>
+
+        <div class="d-flex" style="justify-content: center">
+            <iframe width="512" height="316"
+            src="https://www.youtube.com/embed/r1SHpqkQaco?si=xM6KFwJpx2stg72X&amp;controls=0" title="YouTube video - Conheça a Receita Federal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            </iframe>
+        </div>
+      </div>
+
+      <!-- Fim sobre a Receita -->
+
+      <!-- Separador -->
+      <span class="br-divider my-3 m-5"></span>
+      <!-- Fim do separador -->
+
+      <div class="container-lg">
+        <p class="title-section">
+          A Receita Federal
+        </p>
+
+        <div class="d-flex">
+          <div class="paragrafo text-center text-lg-left">
+            Receita Federal, o que ela faz? Est incidunt atque rem mollitia iste et iure doloribus. Sit illum consequatur nam labore voluptatem 
+            aut dignissimos minima et adipisci laboriosam ut adipisci vitae.<br><br>
+
+            Aut autem voluptatum At commodi sunt qui illo maiores ut enim velit rem libero iure a enim molestiae. Aut aliquid culpa sed nemo 
+            eveniet non laborum reiciendis ea distinctio molestiae sit esse vero vel quae dolorem. Rem ipsa saepe id aliquam quae aut <br><br>
+            repellendus nulla. Id quaerat cumque ut voluptate perspiciatis et vitae exercitationem At voluptas ipsam ut maxime dicta aut 
+            quod eaque.<br><br>
+
+            <button class="br-button secondary mr-3" type="button">Saiba mais</button>
+          </div>  
+        </div>
+      </div>
+
+      <div class="container-lg">
+        <p class="title-section">
+          Outros vídeos para você se manter informado!
+        </p>
+        <div class="d-flex">
+            <div class="video1">
+                <iframe width="345" height="158"
+                src="https://www.youtube.com/embed/qxxqYwNGQBE?si=zFxdUaytrvptdwrM&amp;controls=0" title="YouTube video - Receita Federal - 50 anos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video1">
+                <iframe width="356" height="158"
+                src="https://www.youtube.com/embed/MhaDv7Z2xKo?si=wcS2yMxIX2P21MKp&amp;controls=0" title="YouTube video - Institucional Receita Federal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video1">
+                <iframe width="356" height="158"
+                src="https://www.youtube.com/embed/nzgLSRdYl2c?si=BAOl9Aa2-yqvCYRg&amp;controls=0" title="YouTube video - Conheça a Aduana brasileira   " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                </iframe>
+            </div>
+        </div>    
+      </div> 
+
+    </div> <!-- Finaliza o template base -->
+    <!-- Footer -->
+
+    <br-rodape></br-rodape>
+
+    
+    <nav class="back-to-top active" aria-label="Voltar ao topo da página">
+      <a href="#wrapper">
+          <span class="fa fa-chevron-up"></span>
+          <span class="sr-only">Voltar ao topo da página</span>
+      </a>
+    </nav>
+
+    <!-- Scripts de componentes -->
+    <script type="module" src="./bibliotecas/govbr-ds/core.min.js"></script>
+    <script src="./bibliotecas/govbr-ds/core-init.js"></script>
+    <!--script src="./js/javascript.js"  type="module"></script-->
+  </body>
+</html>
