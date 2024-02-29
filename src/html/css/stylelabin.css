@@ -17,9 +17,35 @@ margin-bottom: 50px;
     border: 2px solid red;
     margin: 4px;
 }
-.container img{
+.container-labin img{
     max-width: 700px;
     max-height: 500px;
     width: auto;
     height: auto;
+} 
+.labin .container-labin{
+    display: flex;
+    align-items: center;
 }
+
+.labin .labin-rfb-text{
+    width: 50%;
+    padding: 0 40px;
+}
+
+.flabin .labin-rfb-text h3{
+    font-size: 56px;
+}
+
+.labin .labin-rfb-text p{
+    margin: 5px 0 10px 0;
+}
+
+.labin .labin-rfb-img{
+    width: 50%;
+}
+
+.labin .labin-rfb-imgimg{
+    width: 100%;
+}
+
