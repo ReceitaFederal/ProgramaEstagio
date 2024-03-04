@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Pessoa {
+            constructor(nome, idade) {
+                this.nome = nome;
+                this.idade = idade;
+            }
+            falar() {
+                console.log("Olá, meu nome é " + this.nome);
+            }
+            falarMuito(){
+                for (let i = 0; i < 10; i++) {
+                    this.falar();
+                }
+            }
+        }
+
+        let pessoa1 = new Pessoa("João", 20);
+        let pessoa2 = new Pessoa("Maria", 30);
+        let pessoa3 = new Pessoa("José", 40);        
+
+    </script>
+</body>
+</html>
