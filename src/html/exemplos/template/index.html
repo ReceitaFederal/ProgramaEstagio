@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #conteudo{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <template>
+        <div>Título</div>
+        <span>Nome:</span><span id="nome"></span><br>
+        <span>Telefone:</span><span id="telefone"></span><br><br>
+    </template>
+    <div id="conteudo"></div>
+
+    <script>
+        //Esses dois abaixo são equivalentes
+        //Esse usa CSS Selector
+        let div_conteudo = document.querySelector("#conteudo");
+        //Essa é uma função específica para id
+        //let div_conteudo = document.getElementById("conteudo");
+
+        //div_conteudo.innerHTML = "<a href='www.google.com'>Google</a>";
+
+        let lista_pessoas = [
+            {nome:"Ana", telefone:"2333"},
+            {nome:"Carol", telefone:"222222"},
+            {nome:"Bonafé", telefone:"333"},
+        ];
+        
+        let template_dados_pessoa = document.querySelector("template");
+
+        for (let indice_pessoa in lista_pessoas){
+            
+            let pessoa = lista_pessoas[indice_pessoa];
+
+            let componente_pessoa = template_dados_pessoa.content.cloneNode(true);
+
+            let componente_nome = componente_pessoa.querySelector("#nome");
+            componente_nome.innerText = pessoa['nome'];
+
+            let componente_telefone = componente_pessoa.querySelector("#telefone");
+            componente_telefone.innerText = pessoa['telefone'];
+
+            div_conteudo.appendChild(componente_pessoa);
+        }        
+
+    </script>
+</body>
+</html>
