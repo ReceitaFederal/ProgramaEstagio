@@ -6,7 +6,7 @@ export class LinkExemplo extends HTMLElement{
         for (let i = 0; i < 10; i++){
 
             let tag_a = document.createElement('a');
-            tag_a.href = './cabecalho/cabecalho.html';
+            tag_a.href = '../../componentes/cabecalho/cabecalho.html';
             tag_a.innerText = `Link${i}`;            
             this.appendChild(tag_a);
 
