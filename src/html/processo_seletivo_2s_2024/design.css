@@ -2,4 +2,34 @@
     position: relative;
     margin-top: 55px;
     height: 500px;
+    display: block;
+    width: calc(120%); /* Adjusted to show part of the next video */
+  }
+
+  .container-lg {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+  .col-sm-6 {
+    flex: 0 0 auto;
+  }
+  
+  .br-card {
+    margin: 0px;
+    padding: 0px;
+    box-shadow: none;
+  }
+
+  .grabbing {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
   }
