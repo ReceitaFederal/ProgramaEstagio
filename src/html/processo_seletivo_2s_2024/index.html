@@ -7,9 +7,9 @@
 
     <title>Programa Estágio</title>
 
-    <script src="/src/html/componentes/cabecalho/cabecalho.js" type="module"></script>
-    <script src="/src/html/componentes/rodape/rodape.js" type="module"></script>
-    <script src="./main.js"  type="module"></script>
+    <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
+    <script src="./componentes/rodape/rodape.js" type="module"></script>
+    <script src="./js/main.js"  type="module"></script>
 
     <!-- Scripts de componentes Design System-->
     <script src="../bibliotecas/govbr-ds/core.min.js" type="module"></script>
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../bibliotecas/govbr-ds/core-lite.css" />
 
     <!--- Design próprio CSS -->
-    <link rel="stylesheet" href="./design.css" />
+    <link rel="stylesheet" href="./css/design.css" />
     <link rel="stylesheet" href="../css/programaetg.css"/>
 
     <!--- Ícones Font Awesome - Versão 6.5.1 -->
@@ -41,319 +41,33 @@
 
   <body>
     <div class="template-base">   
-        
-    <!--<video id="video-banner" src="https://www.youtube.com/embed/KH812UTogE8?si=lXtDaC7yzFud1yRs&amp;controls=0" controls></video>    
-   <div><button onclick="setCurTime()" type="button" value="5">Go to 5 Sec</button></div>
-   <div><button onclick="setCurTime()" type="button" value="10">Go to 10 Sec</button></div>
-   <div><button onclick="setCurTime()" type="button" value="20">Go to 20 Sec</button></div>-->
+    
+      <br-cabecalho></br-cabecalho>
 
-    <!--<div>
-        <p>
-            <button id="topico1">Play/Pause Video</button>
-        </p>
-        <p>
-            <button id="topico2">Jump to 7</button>
-        </p>
-    </div>-->
-
-    <div class="d-flex">
+    <div class="d-flex mb-5">
         <!--<div class="video-banner mt-0">
             <iframe width="1450" height="600" id="video-banner"
             src="https://www.youtube.com/embed/KH812UTogE8?si=lXtDaC7yzFud1yRs&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
             </iframe>
         </div>-->
         <video class="video-banner" autoplay loop muted id="video-banner" width="1450" height="600">
-            <source src="./WCO Technology Conference & Exhibition 2024 (Inglês).mp4" type="video/mp4"></source>
+            <source src="./videos/WCO Technology Conference & Exhibition 2024 (Inglês).mp4" type="video/mp4"></source>
             Your browser does not support HTML5 video.
         </video>
       </div>
-    <div class="container-lg">
+    <div class="mb-5">
       <div class="p-3 text-center">
         <button id="topico1" class="br-button secondary mr-3" type="button">Play / Pause</button>
-        <button id="topico2" class="br-button secondary mr-3" type="button">Tópico 2</button>
-        <button id="topico3" class="br-button secondary mr-3" type="button">Tópico 3</button>
-        <button class="br-button secondary mr-3" type="button" disabled>Tópico 4</button>
+        <button id="topico2" class="br-button secondary mr-3" type="button">A Receita Federal</button>
+        <button id="topico3" class="br-button secondary mr-3" type="button">O que é o Labin</button>
+        <button class="br-button secondary mr-3" type="button" disabled>Objetivos do estágio</button>
+        <button class="br-button secondary mr-3" type="button" disabled>Perfil do estagiário</button>
+        <button class="br-button secondary mr-3" type="button" disabled>A oportunidade</button>
       </div>
     </div>
 
-    <div class="container-lg">
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="br-card">
-            <div class="m-0">
-              <div class="overlay">
-                <div class="titulo-capa">Título</div>
-              </div>
-              <video class="video-banner" autoplay loop muted id="video-banner">
-                <source src="./time.mp4" type="video/mp4"></source>
-                Your browser does not support HTML5 video.
-              </video>
-            </div>  
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="br-card">
-            <div class="m-0">
-              <div class="overlay">
-                <div class="titulo-capa">Título</div>
-              </div>
-              <video class="video-banner" autoplay loop muted id="video-banner" width="120%">
-                <source src="./time.mp4" type="video/mp4"></source>
-                Your browser does not support HTML5 video.
-              </video>
-            </div>  
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="br-card">
-            <div class="m-0">
-              <div class="overlay">
-                <div class="titulo-capa">Título</div>
-              </div>
-              <video class="video-banner" autoplay loop muted id="video-banner" width="120%">
-                <source src="./time.mp4" type="video/mp4"></source>
-                Your browser does not support HTML5 video.
-              </video>
-            </div>  
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="br-card">
-            <div class="m-0">
-              <div class="overlay">
-                <div class="titulo-capa">Título</div>
-              </div>
-              <video class="video-banner" autoplay loop muted id="video-banner" width="120%">
-                <source src="./time.mp4" type="video/mp4"></source>
-                Your browser does not support HTML5 video.
-              </video>
-            </div>  
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="br-card">
-            <div class="m-0">
-              <div class="overlay">
-                <div class="titulo-capa">Título</div>
-              </div>
-              <video class="video-banner" autoplay loop muted id="video-banner" width="120%">
-                <source src="./time.mp4" type="video/mp4"></source>
-                Your browser does not support HTML5 video.
-              </video>
-            </div>  
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    
-      <!-- Sobre o Programa de Estágio -->
-
-      <div class="container-lg">
-        <p class="title-section mt-5">
-          Conheça o Programa de Estágio
-        </p>
-
-        <div class="d-flex">
-            <div class="paragrafo text-center text-lg-left">
-                <h4>O que é o programa de estágio?</h4> <br>
-
-                Um programa de estágio é uma oportunidade oferecida por empresas, organizações ou instituições 
-                educacionais para que estudantes ou recém-formados possam adquirir experiência prática em suas 
-                áreas de estudo ou interesse. Geralmente, os estagiários são integrados às equipes de trabalho e 
-                têm a oportunidade de aplicar os conhecimentos teóricos adquiridos na universidade em situações 
-                reais de trabalho.<br><br>
-  
-                Para os estudantes, o estágio proporciona uma valiosa experiência profissional, permitindo-lhes 
-                explorar diferentes áreas de atuação, desenvolver habilidades específicas, construir uma rede de 
-                contatos e, muitas vezes, até mesmo definir seus objetivos de carreira. Em resumo, o programa de 
-                estágio é uma etapa importante na transição da vida acadêmica para o mercado de trabalho, oferecendo 
-                uma oportunidade única de aprendizado e crescimento profissional.<br><br>
-            </div>  
-          </div>
-          <div class="d-flex">
-            <div class="paragrafo text-center text-lg-left">
-                <h4 >Leis, decretos e portarias</h4> <br>
-                
-                Vamos falar um pouquinho sobre o processo de leis, decretos e portarias que foram criados para tornar
-                o estágio um sucesso nos dias de hoje. Esse processo foi longo e envolveu anos de discussões e revisões 
-                para estabelecer regras e normas que garantissem um ambiente propício ao desenvolvimento dos estagiários, 
-                protegendo seus direitos e definindo as responsabilidades das empresas e instituições de ensino. Ao longo 
-                desse caminho, houve a necessidade de adaptar as legislações às mudanças no mercado de trabalho e nas práticas
-                educacionais, resultando em um conjunto de normativas que regem o estágio atualmente.<br><br> 
-
-                <ul>
-                  <li>Na década de 40, mais especificamente em 1942, a Lei Orgânica do Ensino Industrial instituiu um decreto para que os estudantes trabalhassem com a supervisão de um docente na área industrial.</li>
-
-                  <li>Apesar do decreto ter sido criado, ele não era praticado pelas empresas, fazendo com que o estágio não tivesse relação com as unidades de ensino e fosse apenas um trabalho.</li>
-
-                  <li>Somente em 1967, o Ministério do Trabalho criou uma Portaria para que as instituições de ensino fossem incluídas nos contratos, assim como especificações quanto ao valor, duração, entre outros.</li>
-
-                  <li>Em 1970, outro decreto foi instituído para que os estudantes conseguissem aplicar a teoria de forma mais prática, principalmente em áreas como tecnologia, administração, economia e engenharia.</li>
-
-                  <li>No ano seguinte, o estágio passou a ser "fixado" como uma necessidade e complemento educacional no ensino médio para posteriormente também ser aplicado no ensino superior.</li>
-
-                  <li>Levou em torno de 6 anos para esse novo decreto ser de fato regulamentado, exigindo a assinatura de um termo de compromisso.</li>
-
-                  <li>omente em 1994 a educação especial foi considerada e incluída na então Lei Federal.</li>
-
-                  <li>Em 2008, foi a primeira vez que o trabalho foi relacionado a um ato educativo, assim como uma exigência para o ensino fundamental, passando a ter começo, meio e fim, ou seja, planejamento, desenvolvimento e avaliação.</li>
-
-                  <li>Mudanças mais importantes nesse ano: férias, carga horária, acompanhamento e documentação, índice empregados X estagiários, duração, conciliação entre escola e trabalho (avaliações) e penalidade em caso de desconformidade.</li>
-                </ul>
-                <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11788.htm" target="_blank">Para mais informações sobre a história do estágio.</a> 
-            </div>  
-          </div>
-      </div>
-
-      <!-- Fim sobre o Programa de Estágio-->
-
-      <!-- Separador -->
-      <span class="br-divider my-3 m-5"></span>
-      <!-- Fim do separador -->
-
-      <div class="container-lg">
-        <p class="title-section">
-            O Programa de Estágio na Receita Federal
-        </p>
-
-        <div class="d-flex">
-          <div class="paragrafo text-center text-lg-left">
-            <h4>Receita Federal, o que ela faz?</h4> <br>
-            
-            <!--<b>(Fazer só um resumo, porque na página da Receita Federal já vai ter a explicação completa.)</b> <br><br>-->
-            
-              A Receita Federal é responsável pela administração tributária federal, ou seja, ela fiscaliza e 
-              arrecada impostos e contribuições para o governo federal, como o Imposto de Renda, o Imposto sobre 
-              Produtos Industrializados (IPI) e o Imposto sobre Importação. Além disso, ela também controla o 
-              comércio exterior, fiscalizando as importações e exportações de mercadorias. Sua função principal é 
-              garantir que as obrigações fiscais sejam cumpridas e que os recursos necessários para o funcionamento 
-              do país sejam arrecadados.<br><br>
-
-            Quer saber ainda mais sobre o ramo de atuação da Receita Federal?<br><br>
-
-          <a class="br-button secondary mr-3" href="./areceitafederal.html">Saiba mais</a>
-
-          </div>  
-        </div>
-      </div>
-
-      <!-- Separador -->
-      <span class="br-divider my-3 m-5"></span>
-      <!-- Fim do separador -->
-
-      <div class="container-lg">
-        <p class="title-section">
-            O Labin
-        </p>
-
-        <div class="d-flex">
-          <div class="paragrafo text-center text-lg-left">
-            <h4>O que é o Labin?</h4> <br>
-            
-            Est incidunt atque rem mollitia iste et iure doloribus. Sit illum consequatur nam labore voluptatem 
-            aut dignissimos minima et adipisci laboriosam ut adipisci vitae.<br><br>
-
-            Aut autem voluptatum At commodi sunt qui illo maiores ut enim velit rem libero iure a enim molestiae. Aut aliquid culpa sed nemo 
-            eveniet non laborum reiciendis ea distinctio molestiae sit esse vero vel quae dolorem. Rem ipsa saepe id aliquam quae aut <br><br>
-            repellendus nulla. Id quaerat cumque ut voluptate perspiciatis et vitae exercitationem At voluptas ipsam ut maxime dicta aut 
-            quod eaque.<br><br>
-
-          </div>  
-        </div>
-      </div>
-
-      <!-- Separador -->
-      <span class="br-divider my-3 m-5"></span>
-      <!-- Fim do separador -->
-
-      <div class="container-lg">
-        <p class="title-section">
-            Mapa estratégico do Programa de Estágio
-        </p>
-
-        <div class="d-flex">
-          <div class="paragrafo text-center text-lg-left">
-            <h4>O que é um mapa estratégico?</h4> <br>
-            
-            <!--<b>(Falar sobre o conceito de um mapa estratégico)</b> <br><br>-->
-            
-            Um mapa estratégico para o programa de estágio da Receita Federal é uma representação visual das metas e objetivos estratégicos 
-            estabelecidos para o desenvolvimento e aprimoramento dos estagiários em campos específicos.<br><br>
-
-            O mapa estratégico serve como um guia para direcionar as atividades do programa de estágio, 
-            alinhando as metas e objetivos dos estagiários com as necessidades e prioridades estratégicas 
-            da Receita Federal na área de Tecnologia da Informação. Ele também ajuda a monitorar o progresso e 
-            avaliar o impacto das iniciativas implementadas no programa de estágio.<br><br>
-   
-            <a class="br-button secondary mr-3" href="./img/MAPA-ESTRATEGICO-FINALIZADO-1.pdf">Baixar mapa</a>
-          </div>  
-        </div>
-      </div>
-
-      <!-- Separador -->
-      <span class="br-divider my-3 m-5"></span>
-      <!-- Fim do separador -->
-
-      <div class="container-lg">
-        <p class="title-section">
-            Eixos temáticos / Projetos
-        </p>
-
-        <div class="d-flex">
-          <div class="paragrafo text-center text-lg-left">
-            <h4>O que os estagiários aprendem na Receita Federal?</h4> <br>
-            
-            <!--<b>(Citar diferentes eixos temáticos. Exemplo: Tecnologia, direito, administração pública...)</b> <br><br>-->
-            
-            Existe estágio na RFB? 
-              A resposta para esta pergunta é simples: <strong>sim</strong>. Os estágios podem ocorrer em diferentes setores, incluindo: <br>
-              <dl>
-                <dt>Fiscalização:</dt>
-                <dd>- Estágios nesse setor envolvem atividades relacionadas à fiscalização de impostos e contribuições, 
-                  como análise de documentos fiscais, verificação de regularidade fiscal de empresas e pessoas físicas, 
-                  entre outras tarefas.</dd><br>
-                <dt>Gestão e Planejamento:</dt>
-                <dd>- Estágios nesse setor abrangem atividades relacionadas à gestão administrativa, planejamento estratégico, 
-                  elaboração de relatórios e análises, entre outras atividades ligadas à gestão pública.</dd><br>
-                <dt>Tecnologia da Informação:</dt>
-                <dd>- Estágios nessa área envolvem atividades relacionadas ao desenvolvimento e manutenção de sistemas 
-                  informatizados utilizados pela Receita Federal, análise de dados, programação, entre outras tarefas 
-                  ligadas à tecnologia da informação.</dd><br>
-                <dt>Atendimento ao Contribuinte:</dt>
-                <dd>- Estágios nessa área podem incluir o atendimento presencial e telefônico aos contribuintes, 
-                  esclarecimento de dúvidas sobre obrigações tributárias, orientação sobre preenchimento de declarações, 
-                  entre outros serviços de atendimento ao público.</dd><br>
-              </dl>
-
-
-              O estágio na Receita Federal oferece aos estudantes a oportunidade de vivenciar na prática o funcionamento
-              de um dos principais órgãos da administração pública federal e contribuir para o desenvolvimento das políticas
-              tributárias do país.<br><br>
-            
-          </div>  
-        </div>
-        <div class="d-flex">
-            <div class="paragrafo text-center text-lg-left">
-              <h4>Cursos da Trilha de Aprendizagem</h4> <br>
-              
-              <b>(Pedir para o Bonafé a listagem de cursos ou onde podemos acessar)</b> <br><br>
-              
-              Est incidunt atque rem mollitia iste et iure doloribus. Sit illum consequatur nam labore voluptatem 
-              aut dignissimos minima et adipisci laboriosam ut adipisci vitae.<br><br>
-  
-              Aut autem voluptatum At commodi sunt qui illo maiores ut enim velit rem libero iure a enim molestiae. Aut aliquid culpa sed nemo 
-              eveniet non laborum reiciendis ea distinctio molestiae sit esse vero vel quae dolorem. Rem ipsa saepe id aliquam quae aut <br><br>
-              repellendus nulla. Id quaerat cumque ut voluptate perspiciatis et vitae exercitationem At voluptas ipsam ut maxime dicta aut 
-              quod eaque.<br><br>
-              
-            </div>  
-          </div>
-      </div>
-
-    
-
+     
+      <br-rodape></br-rodape>
     
     <nav class="back-to-top active" aria-label="Voltar ao topo da página">
       <a href="#wrapper">
